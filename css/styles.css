@@ -89,8 +89,8 @@ p, figcaption {
 
 .display {
     font-family: var(--ff-display);
-    font-size: calc(var(--font-size) + 0.5rem);
-    line-height: calc(var(--line-height) + 0.5rem);
+    font-size: calc(var(--font-size) + 0.46em);
+    line-height: calc(var(--line-height) + 0.46rem);
     font-weight: 300;
 }
 
