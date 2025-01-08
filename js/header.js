@@ -2,11 +2,11 @@
 
 let headerHeight = document.querySelector(".header").offsetHeight;
 //console.log(headerHeight);
-document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeight + "px + (var(--margin)*0.75)";
+document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeight + "px + var(--margin)";
 
 window.addEventListener('resize', () => {
-    let headerHeight = document.querySelector(".header").scrollHeight;
-    document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeight + "px + (var(--margin)*0.75)";
+    let headerHeight = document.querySelector(".header").offsetHeight;
+    document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeight + "px + var(--margin)";
 });
 
 // toggle hidden section
