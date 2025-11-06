@@ -8,7 +8,7 @@ window.addEventListener('resize', () => {
     let headerHeight = document.querySelector(".header").offsetHeight;
     document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeight + "px + var(--margin)";
     if (localStorage.getItem("accordion") === "on") {
-        accordion();
+        section.style.maxHeight = section.scrollHeight + "px";
     }
 });
 
