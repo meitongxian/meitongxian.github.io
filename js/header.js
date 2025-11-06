@@ -7,6 +7,9 @@ document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeigh
 window.addEventListener('resize', () => {
     let headerHeight = document.querySelector(".header").offsetHeight;
     document.querySelector(".info-wrapper").style.paddingTop = "calc(" + headerHeight + "px + var(--margin)";
+    if (localStorage.getItem("accordion") === "on") {
+        accordion();
+    }
 });
 
 // toggle hidden section
@@ -15,10 +18,22 @@ let hideToggle = document.querySelector(".hide-toggle");
 let section = document.querySelector(".hide-section");
 
 hideToggle.addEventListener("click", () => {
-    section.classList.toggle("hide");
+    accordion();
+});
+
+function accordion() {
     if (hideToggle.innerHTML === "(+ more info)") {
+        localStorage.setItem("accordion", "on");
         hideToggle.innerHTML = "(- less info)";
     } else {
+        localStorage.setItem("accordion", "off");
         hideToggle.innerHTML = "(+ more info)";
     }
-});
+    if (section.style.maxHeight) {
+        section.style.maxHeight = null;
+        section.style.opacity = null;
+    } else {
+        section.style.maxHeight = section.scrollHeight + "px";
+        section.style.opacity = 1;
+    }
+}
