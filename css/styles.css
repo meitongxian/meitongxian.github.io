@@ -142,10 +142,33 @@ hr {
     margin: 0 0 var(--margin);
 }
 
-img, video {
+img, video, .iframe-wrapper {
     margin-bottom: calc(var(--margin)/2);
 }
 
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.iframe-scale {
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    width: 200%;
+    height: 200%;
+}
 
 /*HEADER*/
 
@@ -345,8 +368,9 @@ img, video {
     margin-bottom: var(--margin);
 }
 
-.cover {
+.cover, .iframe-wrapper {
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .flex-wrapper, .flex-wrapper-2, .flex-wrapper-3 {
