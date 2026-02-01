@@ -446,6 +446,10 @@ main {
 }
 
 @media(max-width: 768px) {
+    
+    :root {
+        --margin: 1rem;
+    }
 
     /*HEADER*/
     .info-toggle {
