@@ -1,14 +1,22 @@
 /*INITIAL SETUP*/
 @font-face {
     font-family: "Voyager";
-    src: url("../fonts/Voyager-Regular.woff2") format("woff2 supports variations"),
-    url("../fonts/Voyager-Regular.woff2") format("woff2-variations");
+    src: url('Voyager-Regular.otf') format('opentype');
+    font-style: normal;
 }
+
+@font-face {
+    font-family: "Voyager";
+    src: url('Voyager-Italic.otf') format('opentype');
+    font-style: italic;
+}
+
 @font-face {
     font-family: "Twinkle Script";
     src: url("../fonts/TwinkleScriptVF.woff2") format("woff2 supports variations"),
     url("../fonts/TwinkleScriptVF.woff2") format("woff2-variations");
 }
+
 @font-face {
     font-family: "Spring Script";
     src: url("../fonts/SpringScriptVF.woff2") format("woff2 supports variations"),
@@ -27,7 +35,7 @@
     --text-primary: #272727;
     --text-secondary: #737373;
     --ff-text: "neue-haas-unica", "Arial", sans-serif;
-    --margin: 1.5rem;
+    --margin: 1.2rem;
     --font-size: 0.86rem;
     --line-height: 1.05rem;
     /*for variable fonts*/
@@ -264,9 +272,39 @@ main {
     grid-column: span 4;
 }
 
-.cover, .iframe-wrapper {
+.cover {
     border-radius: 10px;
     overflow: hidden;
+}
+
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: var(--margin);
+    transition: 0.25s ease;
+}
+
+.iframe-wrapper:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.iframe-scale {
+    transform: scale(0.6);
+    transform-origin: 0 0;
+    width: 167%;
+    height: 167%;
 }
 
 .proj-text {
@@ -387,6 +425,56 @@ main {
     cursor: pointer;
 }
 
+.box-wrapper {
+    background-color: #f2f2f2;
+    padding: var(--margin) calc(2*var(--margin));
+    border-radius: calc(0.5*var(--margin));
+}
+
+.controls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--margin);
+    align-items: start;
+    font-family: "Voyager";
+}
+
+label {
+    white-space: nowrap;
+    margin-right: var(--margin);
+    font-family: "Voyager";
+}
+
+.select-wrapper {
+    position: relative;
+    grid-column: 1 / 3;
+}
+
+select {
+    width: 100%;
+    appearance: none;
+    border: none;
+    background-color: var(--box-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.25rem;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.inactive {
+    opacity: var(--hover-opacity);
+    cursor: default;
+}
+
+.lining {
+    font-variant-numeric: lining-nums;
+}
+
 /*MEDIA QUERIES*/
 
 @media(max-width: 1350px) {
@@ -479,6 +567,13 @@ main {
 
     .profile-wrapper {
         padding-bottom: calc(10*var(--margin));
+    }
+
+    .iframe-scale {
+        transform: scale(0.4);
+        transform-origin: 0 0;
+        width: 250%;
+        height: 250%;
     }
         
     /*FOOTER*/

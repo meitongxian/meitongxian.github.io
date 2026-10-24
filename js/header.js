@@ -35,9 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let info = document.querySelector(".info");
     let infoArray = [
         `creates systems with typography, code, and research.`,
-        `is pursuing a BFA in Graphic Design at <a class="link" href="https://www.risd.edu/" target="_blank">RISD ↗︎</a>.`, 
-        `is making things with <a class="link" href="https://www.risdguild.com/" target="_blank">RISD Design Guild ↗︎</a>.`, 
-        `spent last summer designing at <a class="link" href="https://www.apple.com/" target="_blank">Apple ↗︎</a>.`
+        `studied Graphic Design, mostly, at <a class="link" href="https://www.risd.edu/" target="_blank">RISD ↗︎</a>.`, 
+        `is thinking, making, and meandering in New York City.`, 
     ];
     let i = 0;
 
